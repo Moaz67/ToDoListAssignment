@@ -1,0 +1,45 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Modal title</h5>
+      
+
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Task Description</label>
+                        <input [(ngModel)]="Task.taskDescription"  name="Description" class="form-control" id="taskdes" placeholder="Task">
+                        
+                      </div>
+                      <div class="form-group">
+                        <label>Assigned To</label>
+                        <input [(ngModel)]="Task.assignedTo" name="assigned"  class="form-control" id="assigned" placeholder="Assignee">
+                      </div>
+                     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+    
+                      <div class="form-group">
+                        <label>Assigned From</label>
+                        <input [(ngModel)]="Task.creator" name="assigned"  class="form-control" id="assignedfr" placeholder="Creator">
+                      </div>
+                      <div class="form-check">
+                        <label>Due Date</label>
+                        <input  type="date"  id="date">
+                        
+                      </div>
+                </div>
+            </div>
+            
+          
+          </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" (click)="CreateTask()" class="btn btn-primary">Save changes</button>
+      <button type="button" (click)="bsmodal.hide()" class="btn btn-secondary">Close</button>
+    </div>
+  </div>

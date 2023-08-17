@@ -1,0 +1,67 @@
+.disabled {
+    pointer-events: none; /* Disable click events */
+    opacity: 0.6; /* Reduce opacity to visually indicate it's disabled */
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+  }
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:0 auto
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .pagination-button {
+    padding: 0px 7px;
+    margin: 0 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .pagination-button:hover {
+    background-color: #ddd;
+  }
+  
+  .pagination-button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  .table-container {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .table thead th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+  
+
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  
+  .table td {
+    vertical-align: middle;
+  }
+  .selectedpage {
+    background-color:black; 
+    color: white; 
+   
+  }
+  
