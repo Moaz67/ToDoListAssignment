@@ -64,10 +64,17 @@ namespace ToDoList.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTodoItem(int id, Task1 task)
         {
-            if (id != task.TaskId)
-            {
-                return BadRequest();
+            
+            if (task.Status== Entity.TaskStatus.Completed) {
+                 
+                task.CompletedDate = DateTime.Now;
+                task.IsCompleted = true;
             }
+            else
+            {
+               task.Status = Entity.TaskStatus.Edited;
+            }
+          
 
             _context.Entry(task).State = EntityState.Modified;
 

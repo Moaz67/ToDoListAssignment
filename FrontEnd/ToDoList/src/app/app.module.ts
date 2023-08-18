@@ -9,11 +9,12 @@ import { TaskserviceService } from './taskservice.service';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { DeletemodalComponent } from './deletemodal/deletemodal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,CreatetaskComponent
+    TaskComponent,CreatetaskComponent, DeletemodalComponent
     
     
   ],

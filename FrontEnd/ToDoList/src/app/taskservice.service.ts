@@ -24,8 +24,12 @@ export class TaskserviceService {
   }
 
   createTask(task: Task1): Observable<Task1> {
-    const url = this.apiUrl; // Assuming your API supports POST requests for task creation
+   const url= `${this.apiUrl}/ToDoList`;
     return this.http.post<Task1>(url, task);
+  }
+  deleteTask(taskId: number): Observable<void> {
+    const url = `${this.apiUrl}/ToDoList/${taskId}`;
+    return this.http.delete<void>(url);
   }
   
   }

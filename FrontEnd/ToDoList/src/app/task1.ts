@@ -5,7 +5,7 @@ export class Task1 {
     taskDescription:string="";
     createdDate: Date =new Date();
     isCompleted:Boolean = false;
-    completedDate:Date =new Date();
+    completedDate: Date | null = null;
     dueDate :Date=new Date();
     assignedTo:string="";
     creator:string="";

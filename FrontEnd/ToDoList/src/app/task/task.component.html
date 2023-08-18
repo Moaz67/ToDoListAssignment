@@ -1,6 +1,6 @@
-<div class="row">
-<div class="col-11 text-end">
-  <i (click)="Add()" style="font-size: 10px;" class="bi bi-plus-square-fill"></i>
+<div style="margin-left: 40px;" class="row">
+<div class="ml-10px">
+  <i (click)="Add()" style="font-size: 25px;" class="bi bi-plus-square-fill"></i>
 </div>
 </div>
 <div class="row">
@@ -13,6 +13,7 @@
                 <th scope="col">Created Date</th>
                 <th scope="col">Due Date</th>
                 <th scope="col">Is Completed</th>
+                <th scope="col">Completed Date</th>
                 <th scope="col">Assigned To</th>
                 <th scope="col">Creator</th>
                 <th scope="col">Status</th>
@@ -23,13 +24,15 @@
               <tr *ngFor="let tasks of Task,let i=index">
                 <td style="display: none;" >{{Task[i].taskId}}</td>
                 <td>{{Task[i].taskDescription}}</td>
-                <td>{{Task[i].createdDate}}</td>
-                <td>{{Task[i].dueDate}}</td>
-                <td>{{Task[i].isCompleted}}</td>
+                <td>{{transformDate(Task[i].createdDate)}}</td>
+                <td>{{transformDate(Task[i].dueDate)}}</td>
+                <td><input type="checkbox" [disabled]="true" [checked]="Task[i].isCompleted"></td>
+                <td>{{transformDate(Task[i].completedDate)}}</td>
                 <td>{{Task[i].assignedTo}}</td>
                 <td>{{Task[i].creator}}</td>
-                <td>{{Task[i].status}}</td>
-                <td><i (click)="Add(Task[i].taskId)" class="bi bi-pen"></i></td>
+                <td>{{Taskstatus[Task[i].status]}}</td>
+                <td><i (click)="Add(Task[i].taskId)" [class.disabled]="Task[i].isCompleted" class="bi bi-pen"></i> <i class="bi bi-trash" (click)="showdeletemodal(Task[i].taskId)"></i></td>
+                
               </tr>
         
         
@@ -37,15 +40,17 @@
           </table>
     </div>
 </div>
-<div class="row">
 
-  <div *ngFor="let page of PageNumbers,let i=index" class="col">
-    <div class="text-center">
-
-    
-    <button (click)="getResponse(page)" class="btn btn-secondary mx-1">{{page}}</button>
+<div class="d-flex justify-content-center">
+    <ng-container  *ngFor="let page of PageNumbers,let i=index"  >
+      <button style="margin-left: 2px;"   (click)="getResponse(page)" class="btn btn-secondary">{{page}}</button>
+    </ng-container>
+  </div>
+  <br>
+  <div class="row justify-content-center">
+  <div *ngIf="showAlert" class="col-2 alert alert-success" role="alert">
+   Action Successfull!
   </div>
 </div>
 
-</div>
 
