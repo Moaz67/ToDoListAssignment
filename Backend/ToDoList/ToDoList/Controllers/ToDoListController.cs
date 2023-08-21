@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ToDoList.DTO;
 using ToDoList.Entity;
 using AutoMapper;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ToDoList.Controllers
 {
@@ -41,6 +42,41 @@ namespace ToDoList.Controllers
                 currentPage = page
             });
         }
+        [HttpGet("search")]
+        public  async Task<ActionResult> GetTaskbySearch(string text, int page = 1, int pageSize = 5)
+            {
+            //var query =await _context.Task
+            //        .Where(task => task.TaskDescription.Contains(text)||task.Creator.Contains(text)||task.AssignedTo.Contains(text)).ToListAsync();
+            //var items = await query
+            //   .Skip((page - 1) * pageSize)
+            //   .Take(pageSize)
+            //   .ToListAsync();
+            //return Ok(items);
+
+            //var items = await _context.Task
+            //        .Where(task => task.TaskDescription.Contains(text) || task.Creator.Contains(text) || task.AssignedTo.Contains(text))
+            //   .Skip((page - 1) * pageSize)
+            //   .Take(pageSize)
+            //   .ToListAsync();
+            //var totalCount = await items.CountAsync();
+            //var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+            //return Ok(new { items = items, page,totalPages });
+            var query = _context.Task
+    .Where(task => task.TaskDescription.Contains(text) || task.Creator.Contains(text) || task.AssignedTo.Contains(text));
+
+            var totalCount = await query.CountAsync();
+
+            var items = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+
+            return Ok(new { items, page, totalPages });
+
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult> GetTaskById(int id)
         {

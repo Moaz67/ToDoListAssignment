@@ -31,5 +31,9 @@ export class TaskserviceService {
     const url = `${this.apiUrl}/ToDoList/${taskId}`;
     return this.http.delete<void>(url);
   }
+  searchResult(text:string,page: number, pageSize: number):Observable<Response>{
+    const url=`${this.apiUrl}/ToDoList/search?text=${text}&page=${page}&pageSize=${pageSize}`;
+    return this.http.get<Response>(url);
+  }
   
   }

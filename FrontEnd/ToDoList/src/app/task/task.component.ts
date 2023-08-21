@@ -14,6 +14,7 @@ import { DeletemodalComponent } from '../deletemodal/deletemodal.component';
 })
 export class TaskComponent {
 
+  searchText: string = '';
   Taskstatus = Taskstatus;
   Task:Task1[]=[];
   PageNumbers:number[]=[]
@@ -23,16 +24,33 @@ export class TaskComponent {
   ngOnInit(): void {
     this.getResponse(1); 
   }
-  getResponse(page: number): void {
-    this.taskService.getResponse(page, 5)
+  getResponse(page: number=1): void {
+    if(this.searchText===null|| this.searchText === ""){
+      this.taskService.getResponse(page, 5)
       .subscribe(
         (response:Response) => {
           this.Task=response.items;
           this.PageNumbers = Array.from({ length: response.totalPages }, (_, index) => index + 1);
           
         })
+    }
+    else{
+      
+        this.taskService.searchResult(this.searchText,page, 1)
+    .subscribe(
+      (response:Response) => {
+        this.Task=response.items;
+        this.PageNumbers = Array.from({ length: response.totalPages }, (_, index) => index + 1);
+        
+      })
+
+    }
+    
       
       
+  }
+  search(page:number):void{
+    
   }
   deleteTask(taskId: number) {
      

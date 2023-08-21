@@ -14,7 +14,7 @@ namespace ToDoList.Entity
             public DateTime? DueDate { get; set; }
             public string AssignedTo { get; set; }
             public string Creator { get; set; }
-        public TaskStatus Status { get; set; }
+            public TaskStatus Status { get; set; }
 
         
     }
