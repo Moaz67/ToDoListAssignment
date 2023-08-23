@@ -87,3 +87,7 @@ E:\ToDoList\Backend\ToDoList\ToDoList\obj\Debug\net6.0\refint\ToDoList.dll
 E:\ToDoList\Backend\ToDoList\ToDoList\obj\Debug\net6.0\ToDoList.pdb
 E:\ToDoList\Backend\ToDoList\ToDoList\obj\Debug\net6.0\ToDoList.genruntimeconfig.cache
 E:\ToDoList\Backend\ToDoList\ToDoList\obj\Debug\net6.0\ref\ToDoList.dll
+E:\ToDoList\Backend\ToDoList\ToDoList\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\ToDoList\Backend\ToDoList\ToDoList\bin\Debug\net6.0\Scrutor.dll
+E:\ToDoList\Backend\ToDoList\ToDoList\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+E:\ToDoList\Backend\ToDoList\ToDoList\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
